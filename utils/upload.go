@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	imagePath = "http://localhost:10000/images"
+	imagePath = "http://vnuapharma.com.vn:10000/images"
 )
 
 func UploadFile(w http.ResponseWriter, r *http.Request) {
@@ -28,6 +28,6 @@ func UploadFile(w http.ResponseWriter, r *http.Request) {
 	defer f.Close()
 	io.Copy(f, file)
 	json.NewEncoder(w).Encode(map[string]string{
-		"image_url": imagePath + cast.ToString(time.Now().Unix()) + unixFileName,
+		"image_url": imagePath + unixFileName,
 	})
 }
